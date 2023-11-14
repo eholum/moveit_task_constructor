@@ -1,3 +1,8 @@
 *.swp
 *.pyc
 __pycache__/
+
+# Generated docs output
+core/doc/_cpp/*
+core/doc/output/*
+core/doc/Pipfile
