@@ -82,7 +82,7 @@ language = "en"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = [".build", "python/pybind11", "output"]
+exclude_patterns = [".build", "python/pybind11", "output", "README.md"]
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
