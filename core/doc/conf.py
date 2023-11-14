@@ -82,7 +82,7 @@ language = "en"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = [".build", "python/pybind11"]
+exclude_patterns = [".build", "python/pybind11", "output"]
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -211,7 +211,7 @@ htmlhelp_basename = "mtcdoc"
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {"python": ("https://docs.python.org/3", None)}
 
-ros_distro = "noetic"
+ros_distro = "iron"
 ros_docs = f"http://docs.ros.org/{ros_distro}/api"
 extlinks = {
     "rosdocs": (f"{ros_docs}/%s", "%s"),
@@ -222,7 +222,7 @@ extlinks = {
 }
 
 
-def generate_doxygen_xml(app):
+def generate_doxygen_xml(app, exception):
     build_dir = os.path.join(app.confdir, ".build")
     if not os.path.exists(build_dir):
         os.mkdir(build_dir)
@@ -239,5 +239,5 @@ def generate_doxygen_xml(app):
 
 def setup(app):
     # Add hook for building doxygen xml when needed
-    # app.connect("builder-inited", generate_doxygen_xml)
+    app.connect("config-inited", generate_doxygen_xml)
     pass
